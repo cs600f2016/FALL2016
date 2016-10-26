@@ -24,7 +24,7 @@ btnLogin.addEventListener('click', e=>{
 	const pass = txtPassword.value;
 	const auth = firebase.auth();
 	//sign in
-	auth.signInWithEmailAndPassword(email,pass);
+	const promise = auth.signInWithEmailAndPassword(email,pass);
 	promise.catch(e=>console.log(e.message));
 });
 
@@ -45,7 +45,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 		console.log(firebaseUser);
 		loginDiv.classList.add('hide');
 		logoutDiv.classList.remove('hide');
-		window.location='/user/loggedIn.html';
+		window.location='/loggedIn.html';
 
 	}
 	else {
