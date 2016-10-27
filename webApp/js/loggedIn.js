@@ -23,6 +23,7 @@
             //window.location='/';
             console.log('Signed Out');
             test.style.display = "none";
+            window.location='/';
         }, function(error) {
             
             console.error('Sign Out Error', error);
@@ -32,8 +33,8 @@
     
     //start team generates token
     startTeamBtn.addEventListener('click', e=> { 
-        
-        	// set the length of the string
+       
+    // set the length of the string
 	var stringLength = 5;
 
 	// list containing characters for the random string
@@ -47,6 +48,7 @@
 			var rndNum = Math.ceil(Math.random() * stringArray.length) - 1;
 			rndString = rndString + stringArray[rndNum];
 		};
+        
 		console.log(rndString);
 	
 var team = {[rndString] : {
