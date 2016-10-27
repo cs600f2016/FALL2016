@@ -23,6 +23,28 @@ label {
     color:#271033;
 }
 
+.parentToken{
+    display: flex;
+    width:400px;
+    padding: 10px;
+}
+
+.childToken {
+    font-size: 35px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+#holdtoken{
+    font-size: 20px;
+    font-weight:500;
+    color: red;
+}
+
+#tokenGen{
+    text-align: left;
+    text-transform: none;
+}
 
 .formColor{
   color:black;
@@ -44,7 +66,7 @@ label {
     border-radius:8px;
     color:white;
     font-weight: 500;
-    font-size:25px;
+    font-size:20px;
 }
 
 #contactSubmit {
