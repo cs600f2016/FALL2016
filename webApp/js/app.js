@@ -52,15 +52,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 	}
 	else {
 		console.log('not logged in');
+        window.location='/';
 		loginDiv.classList.remove('hide');
 		logoutDiv.classList.add('hide');
 	}
 })
 
-btnLogout.addEventListener('click', e=> {
-	firebase.auth().signOut();
 
-})
 
 
 
