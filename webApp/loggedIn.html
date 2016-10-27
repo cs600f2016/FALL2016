@@ -3,10 +3,132 @@
 
 <head>
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PROJECT FINN: Dashboard</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
 <body>
-<h3>Logged in</h3>
+    
+    <body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">Project Habañero</a>
+            </div>
+            
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#logIn">Dashboard</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#rules">Rules</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Contact</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="" id="logoutLink">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+        
+        
+        <!-- Header -->
+    <header>
+        <div class="container" id="logIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="img/profile.png" alt="">
+                    <div class="intro-text">
+                        <span class="name" id="finnSpan">Welcome Back!</span><br />
+                        <h2>Let's play!</h2>
+                        <hr class="star-light">
+                        <div id="loginForm">
+                        <span class="skills">
+                            
+                            <button class="formButton" id="startTeamBtn">Start Team</button>&nbsp;&nbsp;
+    <button class="formButton" id="joinTeamBtn">Join Team</button>
+
+
+                                 
+</div>
+<div id="logoutForm" class="hide">
+<h4>You are logged in!</h4>
+<button id="btnLogout" >Logout</button>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+            
+    
+<!-- About Section -->
+    <section class="portfolio" id="rules">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Rules</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>Project FINN is a scavenger hunt, meets an arts and crafts class, meets a virtual gallery… Users can create teams to participate in Art Challenges. These challenges are made up of randomly chosen prompts and a list of randomly chosen materials.</p>
+                </div>
+                <div class="col-lg-4">
+                    <p>The rules are simple. In order for a challenge to be completed, each team must create a piece of art that answers the prompt and uses at least all of the materials listed within an allotted time frame. Users can join a team by using a token that is sent to them from a team leader via text or email. Post-Challenge, teams can share their creations in the Gallery and see what other teams have come up with!</p>
+                </div>
+               <!-- <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <a href="#" class="btn btn-lg btn-outline">
+                        <i class="fa fa-download"></i> Download Theme
+                    </a> 
+                </div> -->
+            </div>
+        </div>
+    </section>
+    
+    
+    
 </body>
 
 </html>

@@ -14,9 +14,11 @@ const txtEmail = document.getElementById('email');
 const txtPassword = document.getElementById('password');
 const btnLogin = document.getElementById('btnLogin');
 const btnSignUp = document.getElementById('btnSignUp');
-const btnLogout = document.getElementById('btnLogout');
+//const btnLogout = document.getElementById('btnLogout');
 const loginDiv = document.getElementById('loginForm');
 const logoutDiv = document.getElementById('logoutForm');
+    
+const logoutLink = document.getElementById('logoutLink');
 
 btnLogin.addEventListener('click', e=>{
 	//get email and pass

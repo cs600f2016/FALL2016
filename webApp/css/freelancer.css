@@ -3,18 +3,66 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+
+@font-face {
+    font-family: 'Combo'; /*a name to be used later*/
+    src: url('../font/Combo-Regular.ttf'); /*URL to font*/
+}
+
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
 }
 
+#finnSpan{
+    //font-family: 'Combo';
+    font-size:85px;
+}
+
+label {
+    color:#271033;
+}
+
+
 .formColor{
   color:black;
+  width:450px;
+  height:60px;
+    font-size:16px;
+    font-family: 'Montserrat';
+    padding:10px;
+    border:0px;
+  border: none; 
+}
+
+.formButton{
+    padding: 3px;
+    width:143px;
+    height: 50px;
+    border: none;
+    background-color: #388697;
+    border-radius:8px;
+    color:white;
+    font-weight: 500;
+    font-size:25px;
+}
+
+#contactSubmit {
+    border: none;
+    background-color: #388697;
+}
+
+#contactSubmit:hover {
+    background-color:#271033;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
 
 button{
   margin-top: 10px;
-  background-color: #483C6C;
+  background-color: #271033;
 }
 
 p {
@@ -28,8 +76,9 @@ a:hover,
 a:focus,
 a:active,
 a.active {
-  color: #FF921B;
+  color: white;
   outline: none;
+    text-decoration: none;
 }
 h1,
 h2,
@@ -39,7 +88,7 @@ h5,
 h6 {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 400;
 }
 hr.star-light,
 hr.star-primary {
@@ -64,22 +113,22 @@ hr.star-light {
   border-color: white;
 }
 hr.star-light:after {
-  background-color: #FF921B;
+  background-color: #ffb34a;
   color: white;
 }
 hr.star-primary {
-  border-color: #483c6c;
+  border-color: #271033;
 }
 hr.star-primary:after {
   background-color: white;
-  color: #483c6c;
+  color: #271033;
 }
 .img-centered {
   margin: 0 auto;
 }
 header {
   text-align: center;
-  background: #FF921B;
+  background: #ffb34a;
   color: white;
 }
 header .container {
@@ -114,7 +163,7 @@ header .intro-text .skills {
   }
 }
 .navbar-custom {
-  background: #483c6c;
+  background: #271033;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -139,7 +188,7 @@ header .intro-text .skills {
   color: white;
 }
 .navbar-custom .navbar-nav li a:hover {
-  color: #FF921B;
+  color: #ffb34a;
   outline: none;
 }
 .navbar-custom .navbar-nav li a:focus,
@@ -147,14 +196,14 @@ header .intro-text .skills {
   color: white;
 }
 .navbar-custom .navbar-nav li.active a {
-  color: white;
-  background: #FF921B;
+  color: #ffb34a;
+  background: #271033;
 }
 .navbar-custom .navbar-nav li.active a:hover,
 .navbar-custom .navbar-nav li.active a:focus,
 .navbar-custom .navbar-nav li.active a:active {
   color: white;
-  background: #FF921B;
+  background: #271033;
 }
 .navbar-custom .navbar-toggle {
   color: white;
@@ -164,9 +213,9 @@ header .intro-text .skills {
 }
 .navbar-custom .navbar-toggle:hover,
 .navbar-custom .navbar-toggle:focus {
-  background-color: #FF921B;
+  background-color: #ffb34a;
   color: white;
-  border-color: #FF921B;
+  border-color: #ffb34a;
 }
 @media (min-width: 768px) {
   .navbar-custom {
@@ -196,7 +245,7 @@ section h2 {
   font-size: 3em;
 }
 section.success {
-  background: #FF921B;
+  background: #ffb34a;
   color: white;
 }
 @media (max-width: 767px) {
@@ -259,7 +308,7 @@ section.success {
   position: relative;
   margin-bottom: 0;
   padding-bottom: 0.5em;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid #271033;
 }
 .floating-label-form-group input,
 .floating-label-form-group textarea {
@@ -299,27 +348,35 @@ section.success {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #FF921B;
+  color: #ffb34a;
 }
 form .row:first-child .floating-label-form-group {
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #271033;
 }
 footer {
   color: white;
 }
+
+footer a{
+    color:#ffb34a;
+}
+.footer a:hover{
+    color:white;
+}
+
 footer h3 {
   margin-bottom: 30px;
 }
 footer .footer-above {
   padding-top: 50px;
-  background-color: #483c6c;
+  background-color: #271033;
 }
 footer .footer-col {
   margin-bottom: 50px;
 }
 footer .footer-below {
   padding: 25px 0;
-  background-color: #483c6c;
+  background-color: #271033;
 }
 .btn-outline {
   color: white;
@@ -333,14 +390,14 @@ footer .footer-below {
 .btn-outline:focus,
 .btn-outline:active,
 .btn-outline.active {
-  color: #FF921B;
+  color: #ffb34a;
   background: white;
   border: solid 2px white;
 }
 .btn-primary {
   color: white;
-  background-color: #483c6c;
-  border-color: #483c6c;
+  background-color: #271033;
+  border-color: #271033;
   font-weight: 700;
 }
 .btn-primary:hover,
@@ -372,17 +429,17 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #483c6c;
-  border-color: #483c6c;
+  background-color: #271033;
+  border-color: #271033;
 }
 .btn-primary .badge {
-  color: #483c6c;
+  color: #271033;
   background-color: white;
 }
 .btn-success {
   color: white;
-  background-color: #FF921B;
-  border-color: #FF921B;
+  background-color: #ffb34a;
+  border-color: #ffb34a;
   font-weight: 700;
 }
 .btn-success:hover,
@@ -414,11 +471,11 @@ fieldset[disabled] .btn-success:active,
 .btn-success.disabled.active,
 .btn-success[disabled].active,
 fieldset[disabled] .btn-success.active {
-  background-color: #FF921B;
-  border-color: #FF921B;
+  background-color: #ffb34a;
+  border-color: #ffb34a;
 }
 .btn-success .badge {
-  color: #FF921B;
+  color: #ffb34a;
   background-color: white;
 }
 .btn-social {
@@ -490,7 +547,7 @@ fieldset[disabled] .btn-success.active {
   height: 75px;
   width: 1px;
   margin-left: 35px;
-  background-color: #483c6c;
+  background-color: #271033;
   transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   /* IE 9 */
@@ -501,7 +558,7 @@ fieldset[disabled] .btn-success.active {
 .portfolio-modal .close-modal .lr .rl {
   height: 75px;
   width: 1px;
-  background-color: #483c6c;
+  background-color: #271033;
   transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   /* IE 9 */
