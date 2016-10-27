@@ -78,17 +78,24 @@ btnLogout.addEventListener('click', e=> {
 		};
 		console.log(rndString);
 	
-
-
-var theTeam = firebase.database().ref("/Teams");
-theTeam.push({
-			"Name": rndString,
+var team = {[rndString] : {
 			"Member 1" : "",
 			"Member 2" : "",
 			"Member 3" : "",
-			"Member 4" : ""
+			"Member 4" : "",
+			"name" : rndString
+}};
 
-});
+var theTeam = firebase.database().ref('/Teams');
+theTeam.update(team);
+
+// theTeam.on("value", function(snapshot) {
+//   console.log(snapshot.val());
+// }, function (errorObject) {
+//   console.log("The read failed: " + errorObject.code);
+
+// });
+
 
 
 
