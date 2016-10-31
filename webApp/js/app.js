@@ -34,7 +34,7 @@ btnLogin.addEventListener('click', e=>{
 		console.log(firebaseUser);
 		loginDiv.classList.add('hide');
 		logoutDiv.classList.remove('hide');
-		window.location='startTeam.html';
+		window.location='loggedIn.html';
 
 	}
 	else {
