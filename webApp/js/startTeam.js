@@ -27,7 +27,7 @@
         firebase.auth().signOut().then(function() {
             //window.location='/';
             console.log('Signed Out');
-            test.style.display = "none";
+            //test.style.display = "none";
             window.location='/';
         }, function(error) {
             
