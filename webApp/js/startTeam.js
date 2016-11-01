@@ -8,33 +8,26 @@
     messagingSenderId: "817227771799"
   };
   firebase.initializeApp(config);
-    
-    
-     const logoutLink = document.getElementById('logoutLink');
-    const test = document.getElementById('test');
-    
-    const joinTeamBtn = document.getElementById('joinTeamBtn');
-    const startTeamBtn = document.getElementById('startTeamBtn');
-    
-    const tokenChild = document.getElementById('tokenGen');
-    const tokenParent = document.getElementById('parentToken');
-    const holdToken = document.getElementById('holdtoken');
-    
-    
-    var rndString="";
-  window.onload = function(){
+  var theTeam = firebase.database().ref('/Teams');
+  var rndString = "";
+  
 
-      
+    function readyForFB(token){
+     theTeam.orderByChild("name").equalTo(token).on("value", function(snapshot) {
 
-    
-      
-// set the length of the string
+  console.log(snapshot.val());
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+}
+
+                    // set the length of the string
                    var stringLength = 5;
                     
                     // list containing characters for the random string
                     var stringArray = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','!','?'];
                     
-                    var rndString = "";
+                    rndString = "";
                     
                     
                     // build a string with random characters
@@ -55,32 +48,37 @@
                         "name" : rndString
                         }};
                     
-                    var theTeam = firebase.database().ref('/Teams');
+                    
                     theTeam.update(team);
                     
-                   tokenChild.innerHTML=rndString;
+                   //tokenChild.innerHTML=rndString;
                     console.log('you generated a token');
-      
-  } 
-  
-           
-var db=firebase.database();
-    var ref = db.ref("/Teams");
+                    readyForFB(rndString);
 
-/**  //reads the whole database  
-    ref.on("value", function(snapshot) {
-        console.log(snapshot.val());
-    }, function(errorObject) {
-        console.log("fail");
-    }); **/
-   
-    ref.on("child_added", function(snapshot) {
-        var changedPost = snapshot.val();
-        console.log("name: " + changedPost.name +
-                   "\nMember1: " + changedPost.Member1);
-    });
+
+
+
+// if (rndString.length == 4){
+//  theTeam.orderByChild("name").equalTo('!YDV').on("value", function(snapshot) {
+
+//   console.log(snapshot.val());
+// }, function (errorObject) {
+//   console.log("The read failed: " + errorObject.code);
+// });
+// }
+// else{
+//     console.log("too quick");
+// }
     
+    const logoutLink = document.getElementById('logoutLink');
+    const test = document.getElementById('test');
     
+    const joinTeamBtn = document.getElementById('joinTeamBtn');
+    const startTeamBtn = document.getElementById('startTeamBtn');
+    
+    const tokenChild = document.getElementById('tokenGen');
+    const tokenParent = document.getElementById('parentToken');
+    const holdToken = document.getElementById('holdtoken');
     
     
     
@@ -96,10 +94,7 @@ var db=firebase.database();
             console.error('Sign Out Error', error);
         });
     
-        
 })
-    
-    
     
     
     
