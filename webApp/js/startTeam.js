@@ -8,8 +8,26 @@
     messagingSenderId: "817227771799"
   };
   firebase.initializeApp(config);
+    
+    
+     const logoutLink = document.getElementById('logoutLink');
+    const test = document.getElementById('test');
+    
+    const joinTeamBtn = document.getElementById('joinTeamBtn');
+    const startTeamBtn = document.getElementById('startTeamBtn');
+    
+    const tokenChild = document.getElementById('tokenGen');
+    const tokenParent = document.getElementById('parentToken');
+    const holdToken = document.getElementById('holdtoken');
+    
+    
+    var rndString="";
   window.onload = function(){
 
+      
+
+    
+      
 // set the length of the string
                    var stringLength = 5;
                     
@@ -30,10 +48,10 @@
                     console.log(rndString);
 
                     var team = {[rndString] : {
-                        "Member 1" : "",
-                        "Member 2" : "",
-                        "Member 3" : "",
-                        "Member 4" : "",
+                        "Member1" : "",
+                        "Member2" : "",
+                        "Member3" : "",
+                        "Member4" : "",
                         "name" : rndString
                         }};
                     
@@ -42,19 +60,27 @@
                     
                    tokenChild.innerHTML=rndString;
                     console.log('you generated a token');
-
-
+      
   } 
+  
+           
+var db=firebase.database();
+    var ref = db.ref("/Teams");
+
+/**  //reads the whole database  
+    ref.on("value", function(snapshot) {
+        console.log(snapshot.val());
+    }, function(errorObject) {
+        console.log("fail");
+    }); **/
+   
+    ref.on("child_added", function(snapshot) {
+        var changedPost = snapshot.val();
+        console.log("name: " + changedPost.name +
+                   "\nMember1: " + changedPost.Member1);
+    });
     
-    const logoutLink = document.getElementById('logoutLink');
-    const test = document.getElementById('test');
     
-    const joinTeamBtn = document.getElementById('joinTeamBtn');
-    const startTeamBtn = document.getElementById('startTeamBtn');
-    
-    const tokenChild = document.getElementById('tokenGen');
-    const tokenParent = document.getElementById('parentToken');
-    const holdToken = document.getElementById('holdtoken');
     
     
     
@@ -70,7 +96,10 @@
             console.error('Sign Out Error', error);
         });
     
+        
 })
+    
+    
     
     
     
