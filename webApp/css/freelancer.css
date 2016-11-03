@@ -19,6 +19,12 @@ body {
     font-size:85px;
 }
 
+
+.joinformField{
+  /*width: 100%;*/
+  font-size: 1em;
+}
+
 label {
     color:#271033;
 }

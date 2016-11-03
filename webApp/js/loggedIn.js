@@ -36,6 +36,12 @@
         window.location='startTeam.html';
     
     })
+
+        joinTeamBtn.addEventListener('click', e=> { 
+            console.log('clicked');
+        window.location='joinTeam.html';
+    
+    })
     
     
 }());
