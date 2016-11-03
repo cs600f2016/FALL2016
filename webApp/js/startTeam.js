@@ -8,14 +8,15 @@
     messagingSenderId: "817227771799"
   };
   firebase.initializeApp(config);
-  var theTeam = firebase.database().ref('/Teams');
   var rndString = "";
-  
+  theTeam = firebase.database().ref('Teams/');
+  var teamNode;
 
   function readyForFB(token){
    theTeam.orderByChild("name").equalTo(token).on("value", function(snapshot) {
-
-    console.log(snapshot.val());
+   var teamSnapshot = snapshot.val();
+    console.log(teamSnapshot[token].Member1);
+    //parseData()
   }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
   });
@@ -41,18 +42,18 @@
                     console.log(rndString);
 
                     var team = {[rndString] : {
-                      "Member1" : "",
-                      "Member2" : "",
-                      "Member3" : "",
-                      "Member4" : "",
+                      "Member1" : "FinTheFox",
+                      "Member2" : "RogerTheRabbit",
+                      "Member3" : "EllenTheElephant",
+                      "Member4" : "JessTheJaguar",
                       "name" : rndString
                     }};
                     
                     
                     theTeam.update(team);
-                    
                  
                    console.log('you generated a token');
+
                    readyForFB(rndString);
 
 
@@ -69,6 +70,12 @@
 // else{
 //     console.log("too quick");
 // }
+
+function parseData(nodeData) {
+
+
+
+}
 
 const logoutLink = document.getElementById('logoutLink');
 const test = document.getElementById('test');
