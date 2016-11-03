@@ -4,6 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+
 @font-face {
     font-family: 'Combo'; /*a name to be used later*/
     src: url('../font/Combo-Regular.ttf'); /*URL to font*/
@@ -23,6 +24,7 @@ body {
 .joinformField{
   /*width: 100%;*/
   font-size: 1em;
+  color:black;
 }
 
 label {
@@ -75,6 +77,10 @@ label {
     font-size:20px;
 }
 
+.submitToken {
+  margin: 20px;
+}
+
 #contactSubmit {
     border: none;
     background-color: #388697;
@@ -88,10 +94,10 @@ textarea:focus, input:focus{
     outline: none;
 }
 
-button{
+/*button{
   margin-top: 10px;
   background-color: #271033;
-}
+}*/
 
 p {
   font-size: 20px;
@@ -598,3 +604,5 @@ fieldset[disabled] .btn-success.active {
   opacity: 0;
   display: none;
 }
+
+
