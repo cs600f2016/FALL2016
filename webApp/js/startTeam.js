@@ -10,13 +10,13 @@
   firebase.initializeApp(config);
   var rndString = "";
   theTeam = firebase.database().ref('Teams/');
-  var teamNode;
 
   function readyForFB(token){
    theTeam.orderByChild("name").equalTo(token).on("value", function(snapshot) {
    var teamSnapshot = snapshot.val();
     console.log(teamSnapshot[token].Member1);
-    //parseData()
+    parseData(teamSnapshot[token].Member1, teamSnapshot[token].Member2,
+     teamSnapshot[token].Member3, teamSnapshot[token].Member4);
   }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
   });
@@ -71,11 +71,20 @@
 //     console.log("too quick");
 // }
 
-function parseData(nodeData) {
+function parseData(member1, member2, member3, member4) {
 
-
+  Member1.innerHTML=member1;
+  Member2.innerHTML=member2;
+  Member3.innerHTML=member3;
+  Member4.innerHTML=member4;
 
 }
+
+const Member1 = document.getElementById('Member1');
+const Member2 = document.getElementById('Member2');
+const Member3 = document.getElementById('Member3');
+const Member4 = document.getElementById('Member4');
+
 
 const logoutLink = document.getElementById('logoutLink');
 const test = document.getElementById('test');
