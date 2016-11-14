@@ -42,6 +42,8 @@
         window.location='joinTeam.html';
     
     })
-    
+    var user = firebase.auth().currentUser;
+var userEmail = user.email;
+console.log(userEmail);
     
 }());

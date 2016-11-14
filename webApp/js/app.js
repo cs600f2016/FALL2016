@@ -34,7 +34,7 @@ btnLogin.addEventListener('click', e=>{
 		console.log(firebaseUser);
 		loginDiv.classList.add('hide');
 		logoutDiv.classList.remove('hide');
-		window.location='loggedIn.html';
+		//window.location='loggedIn.html';
 
 	}
 	else {
@@ -58,8 +58,7 @@ btnSignUp.addEventListener('click', e=>{
 });
 
 var user = firebase.auth().currentUser;
-//const teamNode = firebase.database().ref('Teams/rndString');
-var userEmail = user.email;
+var userEmail = user.providerData.email;
 console.log(userEmail);
 
 
