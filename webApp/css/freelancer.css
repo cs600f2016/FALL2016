@@ -4,6 +4,9 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+#mainNav{
+  display:flex;
+}
 
 @font-face {
     font-family: 'Combo'; /*a name to be used later*/

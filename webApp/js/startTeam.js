@@ -98,6 +98,12 @@ const holdToken = document.getElementById('holdtoken');
 
 tokenChild.innerHTML=rndString;
 
+var user = firebase.auth().currentUser;
+//const teamNode = firebase.database().ref('Teams/rndString');
+var userEmail = user.email;
+console.log(userEmail);
+//theTeam.update(Member1: userEmail); 
+
 logoutLink.addEventListener('click', e=> {
 
   firebase.auth().signOut().then(function() {

@@ -57,7 +57,10 @@ btnSignUp.addEventListener('click', e=>{
 	promise.catch(e=>console.log(e.message));
 });
 
-
+var user = firebase.auth().currentUser;
+//const teamNode = firebase.database().ref('Teams/rndString');
+var userEmail = user.email;
+console.log(userEmail);
 
 
 
