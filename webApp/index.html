@@ -31,7 +31,7 @@
 
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" id= "name">
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -66,32 +66,35 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <!-- Header -->
+    <!-- Header Section-->
     <header>
-        <div class="container" id="logIn">
+ 
+        <div id= "name" class="container" id="logIn">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
+                    <img class="img-responsive" src="img/profile.png" alt="" id = "img-centered">
                     <div class="intro-text">
-                        <span class="name" id="finnSpan">Finn's Foxhunt</span>
+                        <span class="name" id="name">Finn's Foxhunt</span>
                         <hr class="star-light">
-                        <div id="loginForm">
-                        <span class="skills">
+                        <div id="loginForm name">
+                            <span class="skills" >
+                           
+                                <form >
+                                <br>
+                                <input class = "formField formColor" type="text" name="Email" id="email" placeholder="Email"><br>
+                                <input class = "formField formColor" type="password" name="Password" id="password" placeholder="Password">
+                                </form>
+                                                            
+                                <button class="formButton" id="btnLogin">Login</button>&nbsp;&nbsp;
+                                <button class="formButton" id="btnSignUp">Signup</button> 
+                            </span>
 
-<form>
-<br>
-<input class = "formField formColor" type="text" name="Email" id="email" placeholder="Email"><br>
-<input class = "formField formColor" type="password" name="Password" id="password" placeholder="Password">
-</form>
-                                
-<button class="formButton" id="btnLogin">Login</button>&nbsp;&nbsp;
-<button class="formButton" id="btnSignUp">Signup</button> 
-</span>
-</div>
-<div id="logoutForm" class="hide">
-<h4>You are logged in!</h4>
-<button id="btnLogout" >Logout</button>
-</div>
+                        </div>
+                            
+                        <div id="logoutForm" class="hide">
+                            <h4>You are logged in!</h4>
+                            <button id="btnLogout" >Logout</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,10 +114,12 @@
                     <hr class="star-primary">
                 </div>
             </div>
+           
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
                     <p>Project FINN is a scavenger hunt, meets an arts and crafts class, meets a virtual gallery… Users can create teams to participate in Art Challenges. These challenges are made up of randomly chosen prompts and a list of randomly chosen materials.</p>
                 </div>
+           
                 <div class="col-lg-4">
                     <p>The rules are simple. In order for a challenge to be completed, each team must create a piece of art that answers the prompt and uses at least all of the materials listed within an allotted time frame. Users can join a team by using a token that is sent to them from a team leader via text or email. Post-Challenge, teams can share their creations in the Gallery and see what other teams have come up with!</p>
                 </div>
@@ -128,7 +133,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class ="success" id="about">
+    <section class ="success" id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -155,9 +160,11 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
+                        
                         <div class="row control-group">
                             
                         </div>
+                        
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label class="inputLabel">Message</label>
@@ -166,7 +173,9 @@
                             </div>
                         </div>
                         <br>
-                        <div id="success"></div>
+                        <div id="success">
+                            
+                        </div>
                         <div class="row">
                             <div class="form-group col-xs-12">
                                 <button type="submit" id="contactSubmit" class="btn btn-success btn-lg">Send</button>
@@ -215,6 +224,7 @@
                 </div>
             </div>
         </div>
+       
         <div class="footer-below">
             <div class="container">
                 <div class="row">
@@ -250,8 +260,8 @@
     <script src="js/freelancer.min.js"></script>
     
     <!--     Our App JavaScript -->
-        <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-<script src="/js/app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
