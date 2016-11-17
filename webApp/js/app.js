@@ -32,7 +32,6 @@ btnLogin.addEventListener('click', e=>{
     firebase.auth().onAuthStateChanged(firebaseUser => {
 	if (firebaseUser) {
 		window.location='loggedIn.html';
-
 	}
 	else {
 		console.log('not logged in');
