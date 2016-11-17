@@ -31,16 +31,11 @@ btnLogin.addEventListener('click', e=>{
     
     firebase.auth().onAuthStateChanged(firebaseUser => {
 	if (firebaseUser) {
-		console.log(firebaseUser);
-		loginDiv.classList.add('hide');
-		logoutDiv.classList.remove('hide');
-		//window.location='loggedIn.html';
+		window.location='loggedIn.html';
 
 	}
 	else {
 		console.log('not logged in');
-		loginDiv.classList.remove('hide');
-		logoutDiv.classList.add('hide');
 	}
 })
     
@@ -57,23 +52,6 @@ btnSignUp.addEventListener('click', e=>{
 	promise.catch(e=>console.log(e.message));
 });
 
-var user = firebase.auth().currentUser;
-var userEmail = user.providerData.email;
-console.log(userEmail);
-
-
-
-
-
-
-
-
-// theTeam.on("value", function(snapshot) {
-//   console.log(snapshot.val());
-// }, function (errorObject) {
-//   console.log("The read failed: " + errorObject.code);
-
-// });
 
 
 

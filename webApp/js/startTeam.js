@@ -58,19 +58,6 @@
 
 
 
-
-// if (rndString.length == 4){
-//  theTeam.orderByChild("name").equalTo('!YDV').on("value", function(snapshot) {
-
-//   console.log(snapshot.val());
-// }, function (errorObject) {
-//   console.log("The read failed: " + errorObject.code);
-// });
-// }
-// else{
-//     console.log("too quick");
-// }
-
 function parseData(member1, member2, member3, member4) {
 
   Member1.innerHTML=member1;
@@ -98,11 +85,17 @@ const holdToken = document.getElementById('holdtoken');
 
 tokenChild.innerHTML=rndString;
 
-var user = firebase.auth().currentUser;
-//const teamNode = firebase.database().ref('Teams/rndString');
-var userEmail = user.email;
-console.log(userEmail);
-//theTeam.update(Member1: userEmail); 
+firebase.auth().onAuthStateChanged(firebaseUser => {
+  if (firebaseUser) {
+    console.log("running inside");
+    var user = firebase.auth().currentUser;
+    firstMember = user.email;
+    console.log(firstMember);
+  }
+  else {
+    console.log('not logged in');
+  }
+});
 
 logoutLink.addEventListener('click', e=> {
 
