@@ -89,9 +89,9 @@
       var user = firebase.auth().currentUser;
                       var updateTeam = {[rndString] : {
                         "Member1" : user.email,
-                        "Member2" : "RogerTheRabbit",
-                        "Member3" : "EllenTheElephant",
-                        "Member4" : "JessTheJaguar",
+                        "Member2" : "",
+                        "Member3" : "",
+                        "Member4" : "",
                         "name" : rndString
                       }};
                       theTeam.update(updateTeam);
