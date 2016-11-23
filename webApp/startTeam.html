@@ -99,9 +99,24 @@
 
                                         <div id="inviteButtons">
 
-                                           <button class="formButton">Invite by Email</button>
-                                           <button class="formButton">Invite by Text</button>
+                                           <button class="formButton" id='email-option-btn'>Invite by Email</button>
+                                           <button class="formButton" id='text-option-btn'>Invite by Text</button>
 
+                                            <div id='invite-email-form' class='hide'>
+                                                <br>
+                                                <input class="formField formColor" type="text" name="Email" 
+                                                    id="email-input-field" placeholder="Email">
+                                                <br>
+                                                <button class="formButton" id="email-invite-btn">Send</button>
+                                           </div>
+
+                                           <div id='invite-text-form' class='hide'>
+                                                <br>
+                                                <input class="formField formColor" type="text" name="Email" 
+                                                    id="textmsg-input-field" placeholder="Phone Number">
+                                                <br>
+                                                <button class="formButton" id="text-invite-btn">Send</button>
+                                           </div>
                                        </div>
 
                                    </center>

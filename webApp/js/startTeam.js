@@ -63,13 +63,18 @@
     Member3.innerHTML=member3;
     Member4.innerHTML=member4;
 
-  }
+  } // parseData()
 
   const Member1 = document.getElementById('Member1');
   const Member2 = document.getElementById('Member2');
   const Member3 = document.getElementById('Member3');
   const Member4 = document.getElementById('Member4');
 
+  const inviteEmailBtn = document.getElementById('email-invite-btn');
+  const inviteTextBtn = document.getElementById('text-invite-btn');
+
+  const emailInviteDialog = document.getElementById('email-option-btn');
+  const textMsgInviteDialog = document.getElementById('text-option-btn');
 
   const logoutLink = document.getElementById('logoutLink');
   const test = document.getElementById('test');
@@ -82,6 +87,36 @@
   const holdToken = document.getElementById('holdtoken');
 
   tokenChild.innerHTML=rndString;
+
+  /***  show dialog for invites ***/
+
+  emailInviteDialog.addEventListener('click', e => {
+    if(!document.getElementById('invite-text-form').className)
+      document.getElementById('invite-text-form').className='hide';
+
+    document.getElementById('invite-email-form').className='';
+  });
+
+  textMsgInviteDialog.addEventListener('click', e => {
+    if(!document.getElementById('invite-email-form').className)
+      document.getElementById('invite-email-form').className='hide';
+
+    document.getElementById('invite-text-form').className='';
+  });
+
+  /*** send invite via text field handlers ***/
+
+  inviteEmailBtn.addEventListener('click', e => {
+    const email = document.getElementById('email-input-field').value;
+    console.log('you got', email);
+  });
+
+  inviteTextBtn.addEventListener('click', e => {
+    const phone = document.getElementById('textmsg-input-field').value;
+    console.log('you got', phone);
+  });
+
+  /*** firebase auth ***/
 
   firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
@@ -99,7 +134,7 @@
     else {
       console.log('not logged in');
     }
-  });
+  }); // auth().onAuthStateChanged()
 
   logoutLink.addEventListener('click', e=> {
 
@@ -113,6 +148,6 @@
               console.error('Sign Out Error', error);
             });
 
-  })
+  }); // logoutLink.addEventListener(click)
   
 }());

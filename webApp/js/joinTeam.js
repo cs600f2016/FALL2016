@@ -69,8 +69,7 @@ function addToTeam(token){
     else{
       console.log("logged Out");
     }
-});
-
+  });
 
 }
 

@@ -27,9 +27,9 @@
         }, function(error) {
             
             console.error('Sign Out Error', error);
-        });
+    });
     
-})
+});
     
     //start team generates token
     startTeamBtn.addEventListener('click', e=> { 
