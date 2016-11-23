@@ -12,12 +12,69 @@
   theTeam = firebase.database().ref('Teams/');
   const tokenForm = document.getElementById('enterTokenForm');
 
+  var updateFlag = false;
+  var teamMem2, teamMem3, teamMem4;
+
   tokenForm.setAttribute('size', tokenForm.getAttribute('placeholder').length - 2);
 
   function joinTeam(token){
    theTeam.orderByChild("name").equalTo(token).on("value", function(snapshot) {
    var teamSnapshot = snapshot.val();
     //console.log(teamSnapshot[token].Member1);
+    teamMem2 = teamSnapshot[token].Member2;
+    teamMem3 = teamSnapshot[token].Member3;
+    teamMem4 = teamSnapshot[token].Member4;
+    
+
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+      console.log("running inside");
+      var user = firebase.auth().currentUser;
+      console.log(user.email);
+     
+
+      while (updateFlag == false){
+        if (teamMem2 == ""){
+
+          firebase.database().ref('Teams/' + token).update({
+          Member2 : user.email
+          
+        });   
+          updateFlag = true;
+        }
+
+       else if (teamMem3 == ""){
+
+          firebase.database().ref('Teams/' + token).update({
+          Member3 : user.email
+          
+        });   
+          updateFlag = true;
+        }
+
+        else if(teamMem4 == ""){
+
+          firebase.database().ref('Teams/' + token).update({
+          Member4 : user.email
+          
+        });   
+          updateFlag = true;
+        }
+
+        else{
+          console.log('team full');
+          updateFlag = true;
+        }
+
+      }
+    }
+    else{
+      console.log("logged Out");
+    }
+});
+
+
+
     parseData(teamSnapshot[token].Member1, teamSnapshot[token].Member2,
      teamSnapshot[token].Member3, teamSnapshot[token].Member4);
   }, function (errorObject) {
@@ -61,10 +118,7 @@ function addToTeam(token){
       console.log("running inside");
       var user = firebase.auth().currentUser;
       console.log(user.email);
-
-      firebase.database().ref('Teams/' + token).update({
-        Member2 : user.email
-      });
+     
     }
     else{
       console.log("logged Out");
