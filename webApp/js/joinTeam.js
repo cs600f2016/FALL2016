@@ -17,7 +17,7 @@
   function joinTeam(token){
    theTeam.orderByChild("name").equalTo(token).on("value", function(snapshot) {
    var teamSnapshot = snapshot.val();
-    console.log(teamSnapshot[token].Member1);
+    //console.log(teamSnapshot[token].Member1);
     parseData(teamSnapshot[token].Member1, teamSnapshot[token].Member2,
      teamSnapshot[token].Member3, teamSnapshot[token].Member4);
   }, function (errorObject) {
@@ -44,22 +44,36 @@ const submitButton = document.getElementById("submitToken");
 
 submitButton.addEventListener('click', e => {
   token = tokenForm.value;
-  console.log("I'm running")
-  console.log(token);
+  //console.log("I'm running")
+  //console.log(token);
   joinTeam(token);
+  addToTeam(token);
 },
 
   function(error) {
     console.error('submit error', error);
 
 });
-// const logoutLink = document.getElementById('logoutLink');
 
-// const tokenChild = document.getElementById('tokenGen');
-// const tokenParent = document.getElementById('parentToken');
-// const holdToken = document.getElementById('holdtoken');
+function addToTeam(token){
+   firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+      console.log("running inside");
+      var user = firebase.auth().currentUser;
+      console.log(user.email);
 
-//tokenChild.innerHTML=token;
+      firebase.database().ref('Teams/' + token).update({
+        Member2 : user.email
+      });
+    }
+    else{
+      console.log("logged Out");
+    }
+});
+
+
+}
+
 
 logoutLink.addEventListener('click', e=> {
 
