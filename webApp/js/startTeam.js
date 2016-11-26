@@ -109,6 +109,13 @@
   inviteEmailBtn.addEventListener('click', e => {
     const email = document.getElementById('email-input-field').value;
     console.log('you got', email);
+      
+      const emailText = "mailto:"+email+"?subject=Join Me on Finn's Foxhunt!&body=Hello, Friend! Join me for a game of Finn's FoxHunt! Go to www.finnsfoxhunt.com/joinTeam/ and enter this token to join our team: "+rndString;
+      
+      window.location = emailText;
+      
+      console.log(email, emailText);
+      
   });
 
   inviteTextBtn.addEventListener('click', e => {
