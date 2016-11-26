@@ -114,6 +114,13 @@
   inviteTextBtn.addEventListener('click', e => {
     const phone = document.getElementById('textmsg-input-field').value;
     console.log('you got', phone);
+      
+      const textMsg = "sms://"+phone+"?body=Hello, Friend! Join me for a game of Finn's FoxHunt! Go to www.finnsfoxhunt.com/joinTeam/ and enter this token to join our team: "+rndString;
+      
+      window.location = textMsg;
+      
+      console.log(phone, textMsg);
+      
   });
 
   /*** firebase auth ***/
