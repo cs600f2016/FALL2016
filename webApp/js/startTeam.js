@@ -122,11 +122,22 @@
     const phone = document.getElementById('textmsg-input-field').value;
     console.log('you got', phone);
       
+      if(phone.length!=10 || !phone.match(/^\d+$/)) {
+          
+          var errorMsg = document.getElementById("catch-error");
+          errorMsg.innerHTML = "Not a valid phone number.";
+          
+      }
+      
+      else {
+          console.log("is a valid number");
+          
       const textMsg = "sms://"+phone+"?body=Hello, Friend! Join me for a game of Finn's FoxHunt! Go to www.finnsfoxhunt.com/joinTeam/ and enter this token to join our team: "+rndString;
       
       window.location = textMsg;
       
       console.log(phone, textMsg);
+  }
       
   });
 

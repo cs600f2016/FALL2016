@@ -6,7 +6,7 @@
 
 
 @font-face {
-    font-family: 'Combo'; a name to be used later
+    font-family: 'Combo'; //a name to be used later
     src: url('../font/Combo-Regular.ttf'); 
 }
 
@@ -41,6 +41,11 @@ label {
     font-size: 35px;
     font-weight: 800;
     text-transform: uppercase;
+}
+
+#catch-error {
+    font-size: 20px;
+    font-weight: 500;
 }
 
 #holdtoken{
