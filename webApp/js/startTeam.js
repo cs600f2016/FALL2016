@@ -81,6 +81,7 @@
 
   const joinTeamBtn = document.getElementById('joinTeamBtn');
   const startTeamBtn = document.getElementById('startTeamBtn');
+  const readyBtn = document.getElementById('readyBtn');
 
   const tokenChild = document.getElementById('tokenGen');
   const tokenParent = document.getElementById('parentToken');
@@ -160,6 +161,12 @@
       console.log('not logged in');
     }
   }); // auth().onAuthStateChanged()
+
+  readyBtn.addEventListener('click', e=> {
+      console.log('leave me alone');
+      window.location='gameplay.html';
+
+  });
 
   logoutLink.addEventListener('click', e=> {
 
