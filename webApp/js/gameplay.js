@@ -9,13 +9,45 @@
   };
 
   firebase.initializeApp(config);
+    console.log("initialize");
+    
+    const mat1 = document.getElementById("mat1");
+    const mat2 = document.getElementById("mat2");
+    const mat3 = document.getElementById("mat3");
+    const mat4 = document.getElementById("mat4");
+    
+  var ref = firebase.database().ref('/Materials');
 
-
-  var materials = { Materials : {
+  var materials = { 
     "Material1" : "8 Sticks",
     "Material2" : "3 Soda Cans",
     "Material3" : "1 Fabian",
     "Material4" : "2 pieces of litter"
-  }};
+  };
+    
+    ref.update(materials);
+    pullMaterials();
+    
+    function parseData(Material1, Material2, Material3, Material4){
+        console.log("here");
+        mat1.innerHTML=Material1;
+        mat2.innerHTML=Material2;
+        mat3.innerHTML=Material3;
+        mat4.innerHTML=Material4;
+    }
+    
+    function pullMaterials(){
+        ref.orderByChild("name").on("value", function(snapshot) {
 
-});
+          var matSnapshot = snapshot.val();
+          console.log(matSnapshot);
+            
+        parseData(matSnapshot.Material1, matSnapshot.Material2,
+            matSnapshot.Material3, matSnapshot.Material4);
+        }, function (errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+  }
+
+
+}());
