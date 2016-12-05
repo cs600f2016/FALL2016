@@ -52,8 +52,9 @@
         });
   }
     
-    
-    mat1.addEventListener('click', e=> {
+
+//checklist    
+mat1.addEventListener('click', e=> {
         if(materials.Material1Found == 0){
             materials.Material1Found = 1;
             mat1.style.textDecoration = "line-through";
@@ -86,7 +87,7 @@ mat3.addEventListener('click', e=> {
             ref.update(materials);
         }
         else {
-            materials.Material2Found = 0;
+            materials.Material3Found = 0;
             mat3.style.textDecoration = "none";
             ref.update(materials);
         } 
@@ -99,7 +100,7 @@ mat4.addEventListener('click', e=> {
             ref.update(materials);
         }
         else {
-            materials.Material2Found = 0;
+            materials.Material4Found = 0;
             mat4.style.textDecoration = "none";
             ref.update(materials);
         } 
