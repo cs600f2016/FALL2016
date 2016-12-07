@@ -10,27 +10,19 @@
 
   firebase.initializeApp(config);
     console.log("initialize");
-    
+    var token = document.cookie;
+    console.log(token);
     const mat1 = document.getElementById("mat1");
     const mat2 = document.getElementById("mat2");
     const mat3 = document.getElementById("mat3");
     const mat4 = document.getElementById("mat4");
+
+    var Mat1Found, Mat2Found, Mat3Found, Mat4Found;
     
   var ref = firebase.database().ref('Materials/');
+  var teamRef = firebase.database().ref('Teams');
+  var matRef = firebase.database().ref('Teams/' + token);
 
-  var materials = { 
-      
-    "Material1" : "8 sticks",
-      "Material1Found":0,
-    "Material2" : "3 Soda Cans",
-      "Material2Found":0,
-    "Material3" : "1 Fabian",
-      "Material3Found":0,
-    "Material4" : "2 pieces of litter",
-      "Material4Found":0
-  };
-    
-    ref.update(materials);
     pullMaterials();
     
     function parseData(Material1, Material2, Material3, Material4){
@@ -45,64 +37,87 @@
 
           var matSnapshot = snapshot.val();
 
-        parseData(matSnapshot.Material1, matSnapshot.Material2,
+        pushMasterMaterials(token, matSnapshot.Material1, matSnapshot.Material2,
             matSnapshot.Material3, matSnapshot.Material4);
         }, function (errorObject) {
           console.log("The read failed: " + errorObject.code);
         });
   }
+   
+function pushMasterMaterials(token, mat1, mat2, mat3, mat4){
     
+      
+      firebase.database().ref("Teams/" + token).update({"Material1" : mat1,"Material2" : mat2,"Material3" : mat3,"Material4" : mat4});
+      teamMaterialListener(token);
+
+    }
+  
+function teamMaterialListener(token){
+    teamRef.orderByChild("name").equalTo(token).on("value", function(snapshot) {
+      var teamSnapshot = snapshot.val();
+
+      Mat1Found = teamSnapshot[token].Material1Found;
+      Mat2Found = teamSnapshot[token].Material2Found;
+      Mat3Found = teamSnapshot[token].Material3Found;
+      Mat4Found = teamSnapshot[token].Material4Found;
+
+      parseData(teamSnapshot[token].Material1, teamSnapshot[token].Material2,
+        teamSnapshot[token].Material3, teamSnapshot[token].Material4);
+    }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+  }
 
 //checklist    
 mat1.addEventListener('click', e=> {
-        if(materials.Material1Found == 0){
-            materials.Material1Found = 1;
+        if(Mat1Found == 0){
             mat1.style.textDecoration = "line-through";
-            ref.update(materials);
+            matRef.update({"Material1Found" : 1});
+            
         }
         else {
-            materials.Material1Found = 0;
+            Mat1Found = 0;
             mat1.style.textDecoration = "none";
-            ref.update(materials);
+            matRef.update({"Material1Found" : 0});
         } 
     });
     
 mat2.addEventListener('click', e=> {
-        if(materials.Material2Found == 0){
-            materials.Material2Found = 1;
+        if(Mat2Found == 0){
             mat2.style.textDecoration = "line-through";
-            ref.update(materials);
+            matRef.update({"Material2Found" : 1});
+            
         }
         else {
-            materials.Material2Found = 0;
+            Mat2Found = 0;
             mat2.style.textDecoration = "none";
-            ref.update(materials);
+            matRef.update({"Material2Found" : 0});
         } 
     });
 
 mat3.addEventListener('click', e=> {
-        if(materials.Material3Found == 0){
-            materials.Material3Found = 1;
+      if(Mat3Found == 0){
             mat3.style.textDecoration = "line-through";
-            ref.update(materials);
+            matRef.update({"Material3Found" : 1});
+            
         }
         else {
-            materials.Material3Found = 0;
+            Mat3Found = 0;
             mat3.style.textDecoration = "none";
-            ref.update(materials);
+            matRef.update({"Material3Found" : 0});
         } 
     });
     
 mat4.addEventListener('click', e=> {
-        if(materials.Material4Found == 0){
-            materials.Material4Found = 1;
+        if(Mat4Found == 0){
             mat4.style.textDecoration = "line-through";
-            ref.update(materials);
+            matRef.update({"Material4Found" : 1});
+            
         }
         else {
-            materials.Material4Found = 0;
+            Mat4Found = 0;
             mat4.style.textDecoration = "none";
-            ref.update(materials);
+            matRef.update({"Material4Found" : 0});
         } 
     });
     

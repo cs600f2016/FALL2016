@@ -40,13 +40,22 @@
   };
 
   console.log(rndString);
+  document.cookie = rndString;
 
   var team = {[rndString] : {
     "Member1" : "FinTheFox",
     "Member2" : "RogerTheRabbit",
     "Member3" : "EllenTheElephant",
     "Member4" : "JessTheJaguar",
-    "name" : rndString
+    "name" : rndString,
+    "Material1" : "",
+    "Material1Found":0,
+    "Material2" : "",
+    "Material2Found":0,
+    "Material3" : "",
+    "Material3Found":0,
+    "Material4" : "",
+    "Material4Found":0
   }};
 
 
@@ -153,7 +162,15 @@
                         "Member2" : "",
                         "Member3" : "",
                         "Member4" : "",
-                        "name" : rndString
+                        "name" : rndString,
+                        "Material1" : "",
+                        "Material1Found":0,
+                        "Material2" : "",
+                        "Material2Found":0,
+                        "Material3" : "",
+                        "Material3Found":0,
+                        "Material4" : "",
+                        "Material4Found":0
                       }};
                       theTeam.update(updateTeam);
     }

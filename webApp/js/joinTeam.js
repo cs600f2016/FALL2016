@@ -116,6 +116,7 @@ function addToTeam(token){
    firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
       console.log("running inside");
+      document.cookie = token;
       var user = firebase.auth().currentUser;
       console.log(user.email);
      
