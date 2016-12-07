@@ -130,6 +130,10 @@ h6 {
   text-transform: uppercase;
   font-weight: 400;
 }
+h1{
+  font-weight: 600;
+  font-size: 60px;
+}
 hr.star-light,
 hr.star-primary {
   padding: 0;
