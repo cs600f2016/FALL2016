@@ -61,6 +61,34 @@ function teamMaterialListener(token){
       Mat3Found = teamSnapshot[token].Material3Found;
       Mat4Found = teamSnapshot[token].Material4Found;
 
+      if(Mat1Found == 1){
+            mat1.style.textDecoration = "line-through";  
+            }
+            else{
+              mat1.style.textDecoration = "none";
+            }   
+
+      if(Mat2Found == 1){
+            mat2.style.textDecoration = "line-through";  
+            }
+      else{
+              mat2.style.textDecoration = "none";
+            }  
+
+      if(Mat3Found == 1){
+      mat3.style.textDecoration = "line-through";  
+      }
+      else{
+           mat3.style.textDecoration = "none";
+            }
+
+      if(Mat4Found == 1){
+        mat4.style.textDecoration = "line-through";  
+          }
+          else{
+            mat4.style.textDecoration = "none";
+          }                       
+
       parseData(teamSnapshot[token].Material1, teamSnapshot[token].Material2,
         teamSnapshot[token].Material3, teamSnapshot[token].Material4);
     }, function (errorObject) {
@@ -71,13 +99,11 @@ function teamMaterialListener(token){
 //checklist    
 mat1.addEventListener('click', e=> {
         if(Mat1Found == 0){
-            mat1.style.textDecoration = "line-through";
             matRef.update({"Material1Found" : 1});
             
         }
         else {
             Mat1Found = 0;
-            mat1.style.textDecoration = "none";
             matRef.update({"Material1Found" : 0});
         } 
     });
