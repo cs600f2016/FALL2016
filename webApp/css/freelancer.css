@@ -167,6 +167,9 @@ hr.star-primary:after {
   margin: 0 auto;
   display: flex;
 }
+.centered {
+  margin:0 auto;
+}
 header {
   text-align: center;
   background: #ffb34a;
@@ -201,9 +204,11 @@ header .intro-text .skills {
   }
   header .intro-text .name {
     font-size: 4.75em;
+    text-align: center;
   }
   header .intro-text .skills {
     font-size: 1.75em;
+    text-align: center;
   }
 }
 .navbar-custom {
