@@ -14,6 +14,7 @@
 
   var updateFlag = false;
   var teamMem2, teamMem3, teamMem4;
+  var ready;
 
   tokenForm.setAttribute('size', tokenForm.getAttribute('placeholder').length - 2);
 
@@ -25,13 +26,16 @@
     teamMem3 = teamSnapshot[token].Member3;
     teamMem4 = teamSnapshot[token].Member4;
     
+    ready = teamSnapshot[token].Ready;
 
     firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
       console.log("running inside");
       var user = firebase.auth().currentUser;
       console.log(user.email);
-     
+      if (ready == 1){
+        window.location = 'gameplay.html';
+      }
 
       while (updateFlag == false){
         if (teamMem2 == ""){

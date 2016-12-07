@@ -12,6 +12,7 @@
   var rndString = "";
   theTeam = firebase.database().ref('Teams/');
 
+
   function readyForFB(token){
     theTeam.orderByChild("name").equalTo(token).on("value", function(snapshot) {
       var teamSnapshot = snapshot.val();
@@ -55,7 +56,8 @@
     "Material3" : "",
     "Material3Found":0,
     "Material4" : "",
-    "Material4Found":0
+    "Material4Found":0,
+    "Ready" : 0
   }};
 
 
@@ -170,7 +172,8 @@
                         "Material3" : "",
                         "Material3Found":0,
                         "Material4" : "",
-                        "Material4Found":0
+                        "Material4Found":0,
+                        "Ready" : 0
                       }};
                       theTeam.update(updateTeam);
     }
@@ -181,6 +184,9 @@
 
   readyBtn.addEventListener('click', e=> {
       console.log('leave me alone');
+      readyTeam = firebase.database().ref('Teams/' + rndString);
+      readyTeam.update({"Ready" : 1});
+
       window.location='gameplay.html';
 
   });
